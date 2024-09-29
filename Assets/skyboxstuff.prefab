@@ -1,0 +1,73 @@
+{
+  "RootObject": {
+    "__guid": "e6bbc166-481c-467e-a887-7218713914b0",
+    "Flags": 0,
+    "Name": "SkyboxStuff",
+    "Position": "449.5789,281.0492,162.5407",
+    "Enabled": true,
+    "Children": [
+      {
+        "__guid": "00344a8c-fa5e-45ae-b12a-10bb781a1dc3",
+        "Flags": 0,
+        "Name": "2D Skybox",
+        "Tags": "skybox",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkyBox2D",
+            "__guid": "de79e9e0-5c37-4c54-ac67-bfcdb1d5483b",
+            "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.EnvmapProbe",
+            "__guid": "f3e304db-baab-4c1a-a4ec-8442585c2d62",
+            "Texture": "textures/cubemaps/default2.vtex",
+            "Bounds": {
+              "Mins": "-512,-512,-512",
+              "Maxs": "512,512,512"
+            },
+            "DelayBetweenUpdates": 0.1,
+            "Feathering": 0.02,
+            "FrameInterval": 5,
+            "MaxDistance": 512,
+            "MultiBounce": false,
+            "Projection": "Sphere",
+            "RenderDynamically": false,
+            "TintColor": "1,1,1,1",
+            "UpdateStrategy": "OnEnabled",
+            "ZFar": 4096,
+            "ZNear": 16
+          }
+        ]
+      },
+      {
+        "__guid": "bfc59c12-1ed2-4f91-8956-a95a315eac3c",
+        "Flags": 0,
+        "Name": "Sun",
+        "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+        "Tags": "light_directional,light",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.DirectionalLight",
+            "__guid": "d3659344-a90d-48fa-927a-095f70fe041f",
+            "FogMode": "Enabled",
+            "FogStrength": 1,
+            "LightColor": "0.94419,0.97767,1,1",
+            "Shadows": true,
+            "SkyColor": "0.2532,0.32006,0.35349,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "IsValid": true,
+  "__version": 1
+}

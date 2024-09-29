@@ -1,0 +1,101 @@
+{
+  "RootObject": {
+    "__guid": "14d63dd2-d572-4a01-82cb-f7103530cf63",
+    "Flags": 0,
+    "Name": "playerprefab",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.CharacterController",
+        "__guid": "f9aa71cb-fa21-409c-b3e3-5d537462b8fb",
+        "Acceleration": 10,
+        "Bounciness": 0.13,
+        "GroundAngle": 30,
+        "Height": 72,
+        "IgnoreLayers": "",
+        "Radius": 16,
+        "StepHeight": 18,
+        "UseCollisionRules": false
+      },
+      {
+        "__type": "PlayerMovement",
+        "__guid": "b2b49617-ea1b-4e70-98db-d08fb8ead900",
+        "AirControl": 0.1,
+        "Body": {
+          "_type": "gameobject",
+          "go": "967800da-38c1-45d0-9aae-d0310abab77a"
+        },
+        "CameraPrefab": {
+          "_type": "gameobject",
+          "prefab": "controlledcamera.prefab"
+        },
+        "CrouchSpeed": 290,
+        "GroundControl": 4,
+        "Head": {
+          "_type": "gameobject",
+          "go": "aaa457a3-8ebc-43b7-aecc-3d9c6fb74548"
+        },
+        "JumpForce": 200,
+        "MaxForce": 50,
+        "RunSpeed": 290
+      },
+      {
+        "__type": "Sandbox.Citizen.CitizenAnimationHelper",
+        "__guid": "acd7317c-f565-48fc-8819-a88c2c2eafef",
+        "BodyWeight": 1,
+        "EyesWeight": 1,
+        "HeadWeight": 1,
+        "LookAtEnabled": false,
+        "Target": {
+          "_type": "component",
+          "component_id": "9de08e89-9c79-4636-9612-540db6fbd0ee",
+          "go": "967800da-38c1-45d0-9aae-d0310abab77a",
+          "component_type": "SkinnedModelRenderer"
+        }
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "aaa457a3-8ebc-43b7-aecc-3d9c6fb74548",
+        "Flags": 0,
+        "Name": "Head",
+        "Position": "0,0,62.49276",
+        "Enabled": true
+      },
+      {
+        "__guid": "967800da-38c1-45d0-9aae-d0310abab77a",
+        "Flags": 0,
+        "Name": "Body",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "9de08e89-9c79-4636-9612-540db6fbd0ee",
+            "BodyGroups": 341,
+            "CreateBoneObjects": false,
+            "Model": "models/citizen/citizen.vmdl",
+            "Morphs": {},
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "IsValid": true,
+  "__version": 1
+}
