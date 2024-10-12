@@ -1,0 +1,24 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "Map Select",
+      "Type": "map",
+      "Org": "parity",
+      "Ident": "map_select",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": null,
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "scenes/map_select.scene",
+        "ParentPackage": "parity.extended_movement",
+        "GameSupport": [
+          "parity.extended_movement"
+        ]
+      }
+    }
+  }
+}

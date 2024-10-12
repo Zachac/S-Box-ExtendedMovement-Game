@@ -155,9 +155,13 @@ public sealed class PlayerMovement : Component
 				.Run();
 
 			var surface = trace.Surface;
-			var sound = surface.Sounds.FootLand;
-			var stepSound = Sound.Play( sound, position );
-			stepSound.Volume = 0.5f;
+
+			if (surface != null) {
+				var sound = surface.Sounds.FootLand;
+				var stepSound = Sound.Play( sound, position );
+				stepSound.Volume = 0.5f;
+			}
+
 			LastFootStep = Time.Now;
 		}
 	}

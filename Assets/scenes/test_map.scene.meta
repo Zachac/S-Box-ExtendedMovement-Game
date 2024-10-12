@@ -1,0 +1,21 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "Test Map",
+      "Type": "map",
+      "Org": "parity",
+      "Ident": "test_map",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": null,
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "scenes/test_map.scene",
+        "ParentPackage": "parity.extended_movement"
+      }
+    }
+  }
+}

@@ -73,6 +73,10 @@
         {
           "__type": "MapReloadSpawn",
           "__guid": "0feb64ff-8fdf-4989-a93f-0b3eec84b45e"
+        },
+        {
+          "__type": "MapSelect",
+          "__guid": "1976861c-c7c4-4dde-9977-377d5d14079f"
         }
       ]
     }

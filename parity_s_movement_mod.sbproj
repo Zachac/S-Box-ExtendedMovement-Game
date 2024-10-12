@@ -22,7 +22,7 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/load_bigcity.scene",
+    "StartupScene": "scenes/map_select.scene",
     "ControlModes": {},
     "MapStartupScene": "scenes/minimal3.scene",
     "LaunchMode": "Launcher",
