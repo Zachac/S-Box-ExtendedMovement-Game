@@ -10,11 +10,11 @@ public static class Settings {
 
     static Settings() {
 
-        HighAirAcceleration = false;
-        LowGravity = false;
+        HighAirAcceleration = true;
+        LowGravity = true;
         AutoHop = true;
-        WallJump = false;
-        WallSlide = false;
+        WallJump = true;
+        WallSlide = true;
 
     }
 
