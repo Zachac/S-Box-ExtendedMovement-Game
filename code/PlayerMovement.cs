@@ -302,6 +302,10 @@ public sealed class PlayerMovement : Component
 	bool WallSlide()
 	{
 
+		if (Head == null) {
+			return false;
+		}
+
 		var rot = HeadRotation.Angles();
 
 		var camTrace = Scene.Trace.Ray( Head.WorldPosition - rot.Forward * 80f, Head.WorldPosition + rot.Forward * 80f )
