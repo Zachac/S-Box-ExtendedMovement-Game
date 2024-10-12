@@ -4,7 +4,7 @@
   "Org": "parity",
   "Ident": "extended_movement",
   "Schema": 1,
-  "IncludeSourceFiles": false,
+  "IncludeSourceFiles": true,
   "Resources": null,
   "PackageReferences": [],
   "EditorReferences": null,
@@ -22,10 +22,10 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/minimal.scene",
+    "StartupScene": "scenes/load_bigcity.scene",
     "ControlModes": {},
     "MapStartupScene": "scenes/minimal3.scene",
-    "LaunchMode": "Normal",
+    "LaunchMode": "Launcher",
     "ParentPackage": ""
   }
 }

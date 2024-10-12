@@ -2,19 +2,22 @@
   "publish": {
     "Enabled": true,
     "ProjectConfig": {
-      "Title": "load_bigcity",
+      "Title": "Load Bigcity",
       "Type": "map",
-      "Org": "local",
+      "Org": "parity",
       "Ident": "load_bigcity",
       "Schema": 0,
       "IncludeSourceFiles": true,
       "Resources": null,
-      "PackageReferences": null,
+      "PackageReferences": [],
       "EditorReferences": null,
       "IsWhitelistDisabled": false,
       "Metadata": {
         "SingleAssetSource": "scenes/load_bigcity.scene",
-        "ParentPackage": "parity.extended_movement"
+        "ParentPackage": "parity.extended_movement",
+        "GameSupport": [
+          "parity.extended_movement"
+        ]
       }
     }
   }

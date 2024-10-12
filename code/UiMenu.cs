@@ -85,6 +85,14 @@ public class UiMenu : Panel
                 }
             }
         }).Parent = panel;   
+
+        if (Networking.IsHost) {
+            new CustomButton("Map Select", () => {
+                Game.Overlay.ShowPackageSelector( "type:map sort:trending", (e) => {
+                    Scene.GetComponentsInChildren<MapInstance>().First().MapName = e.FullIdent;
+                });
+            }).Parent = panel;  
+        } 
     }
 
     public override void Tick()
