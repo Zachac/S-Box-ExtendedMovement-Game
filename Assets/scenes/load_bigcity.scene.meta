@@ -1,0 +1,21 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "load_bigcity",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "load_bigcity",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": null,
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "scenes/load_bigcity.scene",
+        "ParentPackage": "parity.extended_movement"
+      }
+    }
+  }
+}

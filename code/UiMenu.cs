@@ -74,6 +74,17 @@ public class UiMenu : Panel
 
         new ToggleLabel( "Auto Hop", Settings.AutoHop, b => Settings.AutoHop = b )
             .Parent = panel;
+
+        new CustomButton("Respawn", () => {
+            var players = Scene.GetAllComponents<PlayerMovement>();
+            foreach (var p in players) {
+                if (!p.IsProxy) {
+                    var spawnPoint = NetworkHelper2.FindSpawnLocation(Scene);
+                    p.GameObject.WorldPosition = spawnPoint.Position;
+                    p.GameObject.WorldRotation = spawnPoint.Rotation;
+                }
+            }
+        }).Parent = panel;   
     }
 
     public override void Tick()
@@ -118,6 +129,38 @@ public class UiMenu : Panel
             UpdateAction.Invoke(Checked);
         }
     }
+
+	public class CustomButton : Label
+    {
+        Action UpdateAction;
+
+        public CustomButton( string text, Action action)
+        {
+            Style.BackgroundColor = Color.Black;
+            Style.Opacity = 0.95f;
+            Style.Width = Length.Percent( 100 );
+            Style.Padding = Length.Pixels( 8 );
+            Style.MarginTop = Length.Pixels( 2 );
+
+            Text = text;
+            UpdateAction = action;
+        }
+
+        protected override void OnClick( MousePanelEvent e )
+        {
+            UpdateAction.Invoke();
+        }
+
+		protected override void OnMouseDown( MousePanelEvent e )
+		{  
+            Style.Opacity = 0.75f;
+		}
+
+		protected override void OnMouseUp( MousePanelEvent e )
+		{  
+            Style.Opacity = 0.95f;
+		}
+	}
 
 
 }

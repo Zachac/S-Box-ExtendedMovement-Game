@@ -51,7 +51,7 @@ public sealed class NetworkHelper2 : Component, Component.INetworkListener
 		//
 		// Find a spawn location for this player
 		//
-		var startLocation = FindSpawnLocation().WithScale( 1 );
+		var startLocation = FindSpawnLocation(Scene).WithScale( 1 );
 
 		// Spawn this object and make the client the owner
 		var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
@@ -84,33 +84,19 @@ public sealed class NetworkHelper2 : Component, Component.INetworkListener
 	/// <summary>
 	/// Find the most appropriate place to respawn
 	/// </summary>
-	Transform FindSpawnLocation()
+	public static Transform FindSpawnLocation(Scene scene)
 	{
 
 		//
 		// If we have any SpawnPoint components in the scene, then use those
 		//
-		var spawnPoints = Scene.GetAllComponents<SpawnPoint>().ToArray();
+		var spawnPoints = scene.GetAllComponents<SpawnPoint>().ToArray();
 		if ( spawnPoints.Length > 0 )
 		{
 			return Random.Shared.FromArray( spawnPoints ).Transform.World;
 		}
 
-		//
-		// Failing that, spawn where we are and place the player on the ground
-		//
-		var offsetCheck = Vector3.Down * 50_000f;
-		var start = Transform.Position;
-
-		var trace = Scene.Trace.Ray( start, start + offsetCheck )
-			.WithoutTags( "player", "trigger" )
-			.Run();
-
-		if (trace.Hit) {
-			return Transform.World.Add(offsetCheck * trace.Fraction, true);
-		}
-
-		Log.Info("No ground found!");
-		return Transform.World;
+		Log.Info("No spawn point found, spawning at zero zero!");
+		return new global::Transform();
 	}
 }

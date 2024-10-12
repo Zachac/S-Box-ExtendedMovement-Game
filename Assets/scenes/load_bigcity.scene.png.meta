@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "load_bigcity.scene",
+      "Type": "asset",
+      "Org": "local",
+      "Ident": "load_bigcityscene",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": null,
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "scenes/load_bigcity.scene.png"
+      }
+    }
+  }
+}

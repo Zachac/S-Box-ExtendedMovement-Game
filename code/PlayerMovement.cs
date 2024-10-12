@@ -52,7 +52,7 @@ public sealed class PlayerMovement : Component
 
 		IsCrouching = false;
 		WishVelocity = new Vector3( 0.0f );
-		HeadRotation = Head.Transform.Rotation;
+		HeadRotation = Head.WorldRotation;
 
 
 		if ( Network.Owner == null )
@@ -124,7 +124,7 @@ public sealed class PlayerMovement : Component
 	protected override void OnUpdate()
 	{
 		// Gizmo.Draw.LineBBox( characterController.BoundingBox + Transform.World.Position );
-		HeadRotation = Head.Transform.Rotation;
+		HeadRotation = Head.WorldRotation;
 		Velocity = characterController.Velocity;
 		IsOnGround = characterController.IsOnGround;
 
@@ -172,7 +172,7 @@ public sealed class PlayerMovement : Component
 	{
 		WishVelocity = 0;
 
-		var rot = Head.Transform.Rotation;
+		var rot = Head.WorldRotation;
 		if ( Input.Down( "Forward" ) ) WishVelocity += rot.Forward;
 		if ( Input.Down( "Backward" ) ) WishVelocity += rot.Backward;
 		if ( Input.Down( "Left" ) ) WishVelocity += rot.Left;
@@ -283,7 +283,7 @@ public sealed class PlayerMovement : Component
 		if ( !wallSlide && (Input.Down( "Jump" ) || altJumped) && Settings.WallJump )
 		{
 
-			var rot = Head.Transform.Rotation.Angles();
+			var rot = Head.WorldRotation.Angles();
 			rot.pitch = 0;
 			var rot2 = rot.ToRotation();
 
@@ -304,7 +304,7 @@ public sealed class PlayerMovement : Component
 
 		var rot = HeadRotation.Angles();
 
-		var camTrace = Scene.Trace.Ray( Head.Transform.Position - rot.Forward * 80f, Head.Transform.Position + rot.Forward * 80f )
+		var camTrace = Scene.Trace.Ray( Head.WorldPosition - rot.Forward * 80f, Head.WorldPosition + rot.Forward * 80f )
 					.WithoutTags( "player", "trigger" )
 					.Run();
 
@@ -334,7 +334,7 @@ public sealed class PlayerMovement : Component
 				}
 				else
 				{
-					LastSlideSound.Position = Transform.Position;
+					LastSlideSound.Position = WorldPosition;
 				}
 			}
 
@@ -358,7 +358,7 @@ public sealed class PlayerMovement : Component
 	void WallJump( Vector3 direction )
 	{
 
-		var camTrace = Scene.Trace.Ray( Body.Transform.Position, Body.Transform.Position + direction * 45f )
+		var camTrace = Scene.Trace.Ray( Body.WorldPosition, Body.WorldPosition + direction * 45f )
 					.WithoutTags( "player", "trigger" )
 					.Run();
 
@@ -377,7 +377,7 @@ public sealed class PlayerMovement : Component
 		if ( !characterController.IsOnGround ) return;
 		if ( Jumped ) return;
 
-		HandleFootstepEvent( GameObject.Transform.Position, true );
+		HandleFootstepEvent( GameObject.WorldPosition, true );
 		characterController.Punch( Vector3.Up * JumpForce );
 		animationHelper?.TriggerJump(); // Trigger our jump animation if we have one
 	}
@@ -418,12 +418,12 @@ public sealed class PlayerMovement : Component
 		if ( Body is null ) return;
 
 		var targetAngle = new Angles( 0, HeadRotation.Yaw(), 0 ).ToRotation();
-		float rotateDifference = Body.Transform.Rotation.Distance( targetAngle );
+		float rotateDifference = Body.WorldRotation.Distance( targetAngle );
 
 		// Lerp body rotation if we're moving or rotating far enough https://carsonk.net/S&box-Tutorial-How-to-create-a-Player-Controller/
 		if ( rotateDifference > 50f || characterController.Velocity.Length > 10f )
 		{
-			Body.Transform.Rotation = Rotation.Lerp( Body.Transform.Rotation, targetAngle, Time.Delta * 2f );
+			Body.WorldRotation = Rotation.Lerp( Body.WorldRotation, targetAngle, Time.Delta * 2f );
 		}
 	}
 
@@ -440,7 +440,7 @@ public sealed class PlayerMovement : Component
 
 			if ( !characterController.IsOnGround )
 			{
-				characterController.Transform.Position = characterController.Transform.Position + Vector3.Up * height;
+				characterController.WorldPosition = characterController.WorldPosition + Vector3.Up * height;
 				Camera.InstantCrouchCamera();
 			}
 		}
@@ -455,7 +455,7 @@ public sealed class PlayerMovement : Component
 			if ( !characterController.IsOnGround )
 			{
 
-				var camTrace = Scene.Trace.Size( characterController.BoundingBox ).FromTo( Body.Transform.Position, Body.Transform.Position + Vector3.Down * height )
+				var camTrace = Scene.Trace.Size( characterController.BoundingBox ).FromTo( Body.WorldPosition, Body.WorldPosition + Vector3.Down * height )
 							.WithoutTags( "player", "trigger" )
 							.Run();
 
@@ -464,7 +464,7 @@ public sealed class PlayerMovement : Component
 					height = camTrace.Fraction * height - 0.1f;
 				}
 
-				characterController.Transform.Position = characterController.Transform.Position - Vector3.Up * height;
+				characterController.WorldPosition = characterController.WorldPosition - Vector3.Up * height;
 				Camera.InstantUnCrouchCamera( height );
 			}
 		}

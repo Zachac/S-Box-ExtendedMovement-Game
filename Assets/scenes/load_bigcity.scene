@@ -2,39 +2,6 @@
   "__guid": "325a4042-0696-43dd-a79d-dcc314299ba3",
   "GameObjects": [
     {
-      "__guid": "440b585f-5aab-4012-ab0b-e55e27d26e2a",
-      "Flags": 0,
-      "Name": "SkyboxStuff",
-      "Enabled": true,
-      "__Prefab": "skyboxstuff.prefab",
-      "__PrefabVariables": {}
-    },
-    {
-      "__guid": "3cd29efa-4e4a-4ae1-b457-f2f9c4602371",
-      "Flags": 0,
-      "Name": "Map Object",
-      "Position": "-1.764526,-26.09238,-64",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.MapInstance",
-          "__guid": "ebff1f8f-736a-4550-81d4-2cea73005f5c",
-          "__version": 1,
-          "EnableCollision": true,
-          "MapName": "maps/test_1.vmap",
-          "NoOrigin": false,
-          "OnMapLoaded": null,
-          "OnMapUnloaded": null,
-          "UseMapFromLaunch": false
-        },
-        {
-          "__type": "MapLoaderTest",
-          "__guid": "bcdc000a-ff98-48d6-aa5f-9d1a7d1dad82"
-        }
-      ],
-      "Children": []
-    },
-    {
       "__guid": "b97a6745-9fc2-423e-9a44-a491d980b30c",
       "Flags": 0,
       "Name": "GameNetworkManager",
@@ -60,7 +27,6 @@
             "_type": "gameobject",
             "prefab": "playerprefab.prefab"
           },
-          "SpawnPoints": [],
           "StartServer": true
         }
       ]
@@ -86,6 +52,33 @@
           "__guid": "d5204c13-5cbb-4bca-9d3f-789225593eef"
         }
       ]
+    },
+    {
+      "__guid": "b09d89f3-f584-47f2-829e-89c1f6e4bef7",
+      "Flags": 0,
+      "Name": "Map",
+      "Position": "-65.76203,-190.2128,-19.82225",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "e2d48f6f-5acb-4ec4-ae9e-06cc24717b92",
+          "__version": 1,
+          "EnableCollision": true,
+          "NoOrigin": false,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": true
+        },
+        {
+          "__type": "AutoBigCityLoader",
+          "__guid": "e9a91bea-672b-4c4d-9068-01f01a66c300"
+        },
+        {
+          "__type": "MapReloadSpawn",
+          "__guid": "f1409b25-40b3-4da9-8822-65eb8e4c7d67"
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -93,6 +86,7 @@
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 60,
     "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,

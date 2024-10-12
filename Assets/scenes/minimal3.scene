@@ -27,7 +27,6 @@
             "_type": "gameobject",
             "prefab": "playerprefab.prefab"
           },
-          "SpawnPoints": [],
           "StartServer": true
         }
       ]
@@ -70,6 +69,10 @@
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": true
+        },
+        {
+          "__type": "MapReloadSpawn",
+          "__guid": "0feb64ff-8fdf-4989-a93f-0b3eec84b45e"
         }
       ]
     }
@@ -79,6 +82,7 @@
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 60,
     "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
